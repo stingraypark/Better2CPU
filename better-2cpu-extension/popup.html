@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Better 2CPU 설정</title>
+    <link rel="stylesheet" href="font-theme.css">
+    <link rel="stylesheet" href="popup.css">
+    <script src="font-settings.js" defer></script>
+    <script src="popup.js" defer></script>
+    <script src="giveaway-popup.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1>Better 2CPU</h1>
+        <form id="settings">
+            <fieldset id="theme-options" disabled>
+                <legend>화면 모드</legend>
+                <div class="option-picker">
+                    <input type="radio" name="theme" id="theme-light" value="light" checked>
+                    <label for="theme-light">라이트</label>
+                    <input type="radio" name="theme" id="theme-dark" value="dark">
+                    <label for="theme-dark">다크</label>
+                </div>
+            </fieldset>
+            <fieldset disabled>
+                <legend>글꼴</legend>
+                <div class="option-picker size-picker">
+                    <input type="radio" name="fontFamily" id="font-default" value="default" checked>
+                    <label for="font-default">기본</label>
+                    <input type="radio" name="fontFamily" id="font-pretendard" value="pretendard">
+                    <label for="font-pretendard">Pretendard</label>
+                    <input type="radio" name="fontFamily" id="font-paperlogy" value="paperlogy">
+                    <label for="font-paperlogy">Paperlogy</label>
+                </div>
+            </fieldset>
+            <fieldset aria-describedby="image-size-help" disabled>
+                <legend>이미지 최대 크기 (긴 변)</legend>
+                <div class="option-picker size-picker">
+                    <input type="radio" name="imageMaxEdge" id="image-1920" value="1920" checked>
+                    <label for="image-1920">1,920px</label>
+                    <input type="radio" name="imageMaxEdge" id="image-960" value="960">
+                    <label for="image-960">960px</label>
+                    <input type="radio" name="imageMaxEdge" id="image-free" value="0">
+                    <label for="image-free">자유</label>
+                </div>
+                <p id="image-size-help">자유를 선택하면 원본 크기로 올립니다.</p>
+            </fieldset>
+            <fieldset class="ad-options" disabled>
+                <legend>광고 숨기기</legend>
+                <label class="switch-row">
+                    <span>Google 광고 하이라이트</span>
+                    <input name="hideAdHighlights" type="checkbox" role="switch">
+                    <span class="switch-track" aria-hidden="true"></span>
+                </label>
+                <label class="switch-row">
+                    <span>Google 배너 광고</span>
+                    <input name="hideBannerAds" type="checkbox" role="switch">
+                    <span class="switch-track" aria-hidden="true"></span>
+                </label>
+            </fieldset>
+            <p id="settings-status" role="status" hidden></p>
+        </form>
+        <section class="resize-stats" aria-labelledby="resize-stats-title">
+            <h2 id="resize-stats-title">누적 이미지 업로드 절감량</h2>
+            <p id="resize-stats-total" role="status">0 B</p>
+            <p id="resize-stats-detail">이 버전부터 업로드한 축소 이미지 크기를 집계합니다.</p>
+        </section>
+        <section id="giveaway" aria-labelledby="giveaway-title" hidden>
+            <h2 id="giveaway-title">무료나눔 추첨</h2>
+            <p class="giveaway-status" role="status"></p>
+            <form class="giveaway-form">
+                <label for="winner-count">추첨 수</label>
+                <input id="winner-count" name="winnerCount" type="number" min="1" step="1" value="1" required disabled>
+                <button type="submit" disabled>추첨</button>
+            </form>
+            <ol class="giveaway-winners" aria-label="당첨자"></ol>
+        </section>
+    </main>
+</body>
+</html>

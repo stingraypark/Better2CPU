@@ -1,0 +1,12 @@
+:root {
+    --b2-default-font: "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    --b2-font: var(--b2-default-font);
+}
+
+:root[data-better2cpu-font="pretendard"] {
+    --b2-font: "Pretendard Variable", var(--b2-default-font);
+}
+
+:root[data-better2cpu-font="paperlogy"] {
+    --b2-font: "Paperlogy", var(--b2-default-font);
+}

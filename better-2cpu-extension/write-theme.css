@@ -1,0 +1,255 @@
+:root {
+    --b2-editor-ui: #f5f7fa;
+    --b2-editor-radius: 8px;
+}
+
+:root[data-better2cpu-theme="dark"] {
+    --b2-editor-ui: var(--b2-raised);
+}
+
+form[name="fwrite"] > .panel {
+    border-radius: var(--b2-editor-radius);
+}
+
+form[name="fwrite"] > .panel > .panel-body {
+    padding: clamp(13px, 2vw, 24px);
+}
+
+form[name="fwrite"] > .panel > .panel-body > .form-group:has(> label + .col-xs-12) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px 14px;
+    margin: 0 0 15px;
+}
+
+form[name="fwrite"] > .panel > .panel-body > .form-group:has(> label + .col-xs-12)::before,
+form[name="fwrite"] > .panel > .panel-body > .form-group:has(> label + .col-xs-12)::after {
+    content: none;
+}
+
+form[name="fwrite"] .form-group > label:has(+ .col-xs-12),
+form[name="fwrite"] .form-group > label + .col-xs-12 {
+    float: none;
+    width: auto;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+form[name="fwrite"] .form-group > label:has(+ .col-xs-12) {
+    align-self: start;
+    color: var(--b2-muted);
+    font-weight: 600;
+}
+
+form[name="fwrite"] .form-group > label:empty {
+    display: none;
+}
+
+form[name="fwrite"] .form-group:has(> label + .col-xs-12) > .pull-right {
+    float: none !important;
+    margin: 4px 0 0 !important;
+    text-align: end;
+}
+
+@media (min-width: 768px) {
+    form[name="fwrite"] > .panel > .panel-body > .form-group:has(> label + .col-xs-12) {
+        grid-template-columns: minmax(70px, 9%) minmax(0, 1fr);
+    }
+
+    form[name="fwrite"] .form-group > label:has(+ .col-xs-12) {
+        grid-column: 1;
+        padding-top: 8px;
+    }
+
+    form[name="fwrite"] .form-group > label + .col-xs-12,
+    form[name="fwrite"] .form-group:has(> label + .col-xs-12) > .pull-right {
+        grid-column: 2;
+    }
+}
+
+@media (max-width: 767px) {
+    form[name="fwrite"] .form-group > label.hidden-xs:has(+ .col-xs-12):not(:empty) {
+        display: block !important;
+    }
+
+    form[name="fwrite"] .form-control {
+        font-size: 16px;
+    }
+}
+
+form[name="fwrite"] #wr_subject.form-control {
+    min-height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+form[name="fwrite"] #wr_subject::placeholder {
+    font-weight: 400;
+}
+
+form[name="fwrite"] .form-group:has(#variableFiles) {
+    padding-top: 13px;
+    border-top: 1px solid var(--b2-divider);
+}
+
+form[name="fwrite"] #variableFiles {
+    margin: 6px 0 0;
+}
+
+form[name="fwrite"] #variableFiles td {
+    padding: 5px 0;
+    border-color: var(--b2-divider);
+}
+
+form[name="fwrite"] #variableFiles input[type="file"] {
+    max-width: 100%;
+    color: var(--b2-muted);
+}
+
+form[name="fwrite"] #variableFiles input[type="file"]::file-selector-button {
+    margin-inline-end: 8px;
+    padding: 5px 9px;
+    border: 1px solid var(--b2-border);
+    border-radius: 4px;
+    background: var(--b2-editor-ui);
+    color: var(--b2-text);
+    cursor: pointer;
+}
+
+form[name="fwrite"] #btn_submit {
+    border-color: var(--b2-primary);
+    background: var(--b2-primary);
+    color: #fff;
+}
+
+form[name="fwrite"] #btn_submit:is(:hover, :focus) {
+    border-color: var(--b2-primary-hover);
+    background: var(--b2-primary-hover);
+}
+
+/* Froala's toolbar, document surface and native controls. */
+form[name="fwrite"] .fr-box.fr-basic .fr-toolbar.gray-theme {
+    border: 1px solid var(--b2-border);
+    border-radius: var(--b2-editor-radius) var(--b2-editor-radius) 0 0;
+    background: var(--b2-editor-ui);
+    box-shadow: none;
+}
+
+form[name="fwrite"] .fr-box.fr-basic.fr-top .fr-wrapper {
+    border: 1px solid var(--b2-border);
+    border-top: 0;
+    border-radius: 0 0 var(--b2-editor-radius) var(--b2-editor-radius);
+    background: var(--b2-surface);
+    box-shadow: none;
+}
+
+form[name="fwrite"] .fr-box.fr-basic :is(.fr-element, .fr-code) {
+    color: var(--b2-text);
+}
+
+form[name="fwrite"] .fr-box.fr-basic .fr-code {
+    background: var(--b2-surface);
+}
+
+form[name="fwrite"] .fr-box .fr-wrapper .fr-placeholder {
+    color: var(--b2-muted);
+}
+
+form[name="fwrite"] .fr-box .fr-counter {
+    padding: 3px 7px;
+    border-color: var(--b2-border);
+    border-radius: 4px 0 var(--b2-editor-radius) 0;
+    background: var(--b2-editor-ui);
+    color: var(--b2-muted);
+    font: 12px/1.45 var(--b2-font);
+}
+
+form[name="fwrite"] .fr-toolbar .fr-separator {
+    background: var(--b2-border);
+}
+
+form[name="fwrite"] .fr-toolbar .fr-command.fr-btn:is(:hover, :focus, .fr-active) {
+    background: var(--b2-blue-soft);
+    color: var(--b2-blue-hover);
+}
+
+/* Some Froala menus are attached to the document body. */
+body:has(form[name="fwrite"]) :is(.fr-popup.gray-theme, .fr-modal.gray-theme .fr-modal-wrapper) {
+    border: 1px solid var(--b2-border);
+    border-radius: var(--b2-editor-radius);
+    background: var(--b2-surface);
+    color: var(--b2-text);
+}
+
+body:has(form[name="fwrite"]) .fr-popup.gray-theme .fr-arrow {
+    border-bottom-color: var(--b2-border);
+}
+
+body:has(form[name="fwrite"]) .fr-popup.gray-theme.fr-above .fr-arrow {
+    border-top-color: var(--b2-border);
+}
+
+body:has(form[name="fwrite"]) .fr-popup.gray-theme .fr-image-upload-layer {
+    border: 1px dashed var(--b2-border);
+    border-radius: 5px;
+    background: var(--b2-editor-ui);
+    color: var(--b2-text);
+}
+
+body:has(form[name="fwrite"]) .fr-popup.gray-theme .fr-image-upload-layer:is(:hover, .fr-drop) {
+    border-color: var(--b2-blue);
+    background: var(--b2-blue-soft);
+}
+
+body:has(form[name="fwrite"]) .fr-popup.gray-theme .fr-input-line :is(input, textarea) {
+    border-color: var(--b2-border);
+    background: var(--b2-surface);
+    color: var(--b2-text);
+}
+
+body:has(form[name="fwrite"]) .fr-popup.gray-theme .fr-input-line label {
+    color: var(--b2-muted);
+}
+
+body:has(form[name="fwrite"]) .gray-theme .fr-command.fr-btn + .fr-dropdown-menu .fr-dropdown-wrapper {
+    background: var(--b2-surface);
+    color: var(--b2-text);
+}
+
+body:has(form[name="fwrite"]) .gray-theme .fr-dropdown-menu .fr-dropdown-list li a:is(:hover, :focus, .fr-active) {
+    background: var(--b2-blue-soft);
+}
+
+body:has(form[name="fwrite"]) .fr-modal.gray-theme .fr-modal-wrapper .fr-modal-head {
+    background: var(--b2-editor-ui);
+    box-shadow: 0 1px 0 var(--b2-border);
+}
+
+body:has(form[name="fwrite"]) .fr-modal.gray-theme .fr-modal-wrapper .fr-modal-head .fr-modal-close {
+    color: var(--b2-text);
+}
+
+body:has(form[name="fwrite"]) .fr-popup.gray-theme .fr-action-buttons button.fr-command {
+    border-radius: 4px;
+    color: var(--b2-blue-hover);
+}
+
+body:has(form[name="fwrite"]) .fr-popup.gray-theme .fr-action-buttons button.fr-command:is(:hover, :focus) {
+    background: var(--b2-blue-soft);
+    color: var(--b2-blue-hover);
+}
+
+@media (max-width: 767px) {
+    body:has(form[name="fwrite"]) .fr-popup.gray-theme {
+        left: 50% !important;
+        min-width: 0;
+        width: max-content;
+        max-width: calc(100% - 20px);
+        transform: translateX(-50%);
+    }
+
+    body:has(form[name="fwrite"]) .fr-popup.gray-theme .fr-arrow {
+        display: none;
+    }
+}

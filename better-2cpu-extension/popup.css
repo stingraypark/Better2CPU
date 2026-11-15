@@ -1,0 +1,260 @@
+:root {
+    color-scheme: light;
+    --surface: #fff;
+    --text: #222831;
+    --muted: #5b6573;
+    --track: #f4f6f8;
+    --border: #dce1e7;
+    --selected: #e9f0fa;
+    --accent: #204b89;
+    --error: #9d2935;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --surface: #171a1f;
+    --text: #e5e9ef;
+    --muted: #aeb8c7;
+    --track: #20242b;
+    --border: #3a424e;
+    --selected: #26374d;
+    --accent: #c1d9ff;
+    --error: #ffb4bf;
+}
+
+body {
+    box-sizing: border-box;
+    width: 280px;
+    margin: 0;
+    padding: 16px;
+    background: var(--surface);
+    color: var(--text);
+    font: 14px/1.45 var(--b2-font);
+}
+
+h1 {
+    margin: 0 0 14px;
+    font-size: 17px;
+    font-weight: 650;
+}
+
+fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+fieldset + fieldset {
+    margin-top: 14px;
+}
+
+legend {
+    margin-bottom: 7px;
+    padding: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.option-picker {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3px;
+    padding: 3px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--track);
+}
+
+.size-picker {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.option-picker input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+}
+
+.option-picker label {
+    display: grid;
+    min-height: 34px;
+    place-items: center;
+    border-radius: 4px;
+    color: var(--muted);
+    cursor: pointer;
+}
+
+.option-picker label:hover {
+    color: var(--text);
+}
+
+.option-picker input:checked + label {
+    background: var(--selected);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.option-picker input:focus-visible + label {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+}
+
+.option-picker input:disabled + label {
+    cursor: default;
+}
+
+.ad-options legend {
+    margin-bottom: 3px;
+}
+
+.switch-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 34px;
+    cursor: pointer;
+}
+
+.switch-row input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+}
+
+.switch-track {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex: 0 0 32px;
+    height: 18px;
+    padding: 2px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--track);
+}
+
+.switch-track::after {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--muted);
+    content: "";
+}
+
+.switch-row input:checked + .switch-track {
+    justify-content: flex-end;
+    border-color: var(--accent);
+    background: var(--selected);
+}
+
+.switch-row input:checked + .switch-track::after {
+    background: var(--accent);
+}
+
+.switch-row input:focus-visible + .switch-track {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+#image-size-help,
+#settings-status {
+    margin: 8px 0 0;
+    font-size: 12px;
+}
+
+#image-size-help {
+    color: var(--muted);
+}
+
+#settings-status {
+    color: var(--error);
+}
+
+#giveaway,
+.resize-stats {
+    margin-top: 15px;
+    padding-top: 13px;
+    border-top: 1px solid var(--border);
+}
+
+#giveaway h2,
+.resize-stats h2 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 650;
+}
+
+#resize-stats-total {
+    margin: 4px 0 1px;
+    color: var(--accent);
+    font-size: 21px;
+    font-weight: 650;
+    font-variant-numeric: tabular-nums;
+}
+
+#resize-stats-detail {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.giveaway-status {
+    margin: 4px 0 9px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.giveaway-form {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 7px;
+}
+
+.giveaway-form input,
+.giveaway-form button {
+    box-sizing: border-box;
+    min-width: 0;
+    padding: 5px 9px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+}
+
+.giveaway-form button {
+    background: var(--selected);
+    color: var(--accent);
+    cursor: pointer;
+}
+
+.giveaway-form :is(input, button):focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+.giveaway-form :disabled {
+    opacity: .65;
+    cursor: default;
+}
+
+.giveaway-winners {
+    max-height: 148px;
+    overflow: auto;
+    margin: 8px 0 0;
+    padding-inline-start: 24px;
+    overflow-wrap: anywhere;
+}
+
+.giveaway-winners:empty {
+    display: none;
+}

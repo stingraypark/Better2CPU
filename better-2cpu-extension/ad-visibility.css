@@ -1,0 +1,59 @@
+:root[data-better2cpu-hide-ad-highlights] :is(#google-anno-sa, #google-anno-sa-glow):not(google-anno, google-anno *),
+:root[data-better2cpu-hide-ad-highlights] :is(google-anno-sa-glow, .google-anno-sa-glow):empty {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+:root[data-better2cpu-hide-ad-highlights] google-anno {
+    display: contents !important;
+    pointer-events: none !important;
+}
+
+:root[data-better2cpu-hide-ad-highlights] :is(
+    google-anno, google-anno-sa-glow, .google-anno-sa-glow, #google-anno-sa-glow,
+    google-anno [class^="google-anno-"],
+    [style*="google-anno-sa-glow"]
+) {
+    animation: none !important;
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    color: inherit !important;
+    filter: none !important;
+    text-shadow: none !important;
+    text-decoration: none !important;
+}
+
+:root[data-better2cpu-hide-ad-highlights] :is(
+    google-anno, google-anno-sa-glow, .google-anno-sa-glow, #google-anno-sa-glow,
+    google-anno [class^="google-anno-"],
+    [style*="google-anno-sa-glow"]
+)::before,
+:root[data-better2cpu-hide-ad-highlights] :is(
+    google-anno, google-anno-sa-glow, .google-anno-sa-glow, #google-anno-sa-glow,
+    google-anno [class^="google-anno-"],
+    [style*="google-anno-sa-glow"]
+)::after {
+    content: none !important;
+}
+
+:root[data-better2cpu-hide-banner-ads] :is(
+    ins.adsbygoogle,
+    [id^="aswift_"][id$="_host"],
+    iframe[id^="aswift_"],
+    iframe[id^="google_ads_iframe_"],
+    .google-auto-placed
+) {
+    display: none !important;
+}
+
+/* Collapse wrappers dedicated to a Google ad slot. */
+:root[data-better2cpu-hide-banner-ads] :is(
+    .header-wrapper div,
+    [role="main"] > .row > .col-md-2 > div,
+    #view_main > div,
+    body > div
+):has(> ins.adsbygoogle):not(:has(> :not(ins.adsbygoogle, script))) {
+    display: none !important;
+}

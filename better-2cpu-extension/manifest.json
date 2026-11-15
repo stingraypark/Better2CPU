@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "Better 2CPU",
+  "version": "0.6.0",
+  "description": "2CPU의 화면을 새롭게 꾸미고 글쓰기에 올리는 큰 이미지를 자동으로 축소합니다.",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Better 2CPU 설정",
+    "default_icon": {
+      "240": "logo.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "240": "logo.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["site_logo.png"],
+      "matches": ["*://*.2cpu.co.kr/*"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.2cpu.co.kr/*"],
+      "js": ["giveaway-reader.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["*://*.2cpu.co.kr/*"],
+      "css": ["font-theme.css", "site-theme.css", "site-dark.css", "ad-visibility.css"],
+      "js": ["font-settings.js", "site-theme.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    },
+    {
+      "matches": [
+        "*://2cpu.co.kr/bbs/write.php*",
+        "*://www.2cpu.co.kr/bbs/write.php*"
+      ],
+      "css": ["write-theme.css"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://2cpu.co.kr/bbs/write.php*",
+        "*://www.2cpu.co.kr/bbs/write.php*"
+      ],
+      "js": ["content-script.js"],
+      "run_at": "document_idle",
+      "world": "MAIN"
+    }
+  ]
+}
